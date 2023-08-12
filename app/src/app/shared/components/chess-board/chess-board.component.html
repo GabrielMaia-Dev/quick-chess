@@ -1,0 +1,7 @@
+<div class="chess-board">
+    <div class="chess-tile" [class.selected]="board.selected == p"  *ngFor="let p of positions" (click)="click(p)">
+        <ng-container *ngIf="board.get(p) as piece">
+            <img class="piece" [src]="pieceMap.get(piece.type)" [alt]="p">
+        </ng-container>
+    </div>
+</div>

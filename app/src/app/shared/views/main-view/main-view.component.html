@@ -1,0 +1,7 @@
+<form class="panel">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="name" [(ngModel)]="model.name" >
+    <div class="game-list">
+        <app-game-button text="Chess" (click)="submit('chess')"/>
+    </div>
+</form>

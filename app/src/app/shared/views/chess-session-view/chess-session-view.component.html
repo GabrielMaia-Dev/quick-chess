@@ -1,0 +1,8 @@
+
+<ng-container *ngIf="game$ | async as game">
+    <app-user-tab [user]="game.blackPlayer!"></app-user-tab>
+    <div class="panel board-container">
+        <app-chess-board [board]="game.board"></app-chess-board>
+    </div>
+    <app-user-tab [user]="game.whitePlayer!"></app-user-tab>
+</ng-container>
