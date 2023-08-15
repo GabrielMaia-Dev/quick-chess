@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    working-directory: backend/Api
 
     steps:
       - uses: actions/checkout@v2
