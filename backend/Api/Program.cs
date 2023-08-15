@@ -25,6 +25,9 @@ var app = builder.Build();
 
 app.UseCors(conf => conf.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.Map("/hub", conf =>

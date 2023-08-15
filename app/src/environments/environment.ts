@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
-    apiUrl: 'http://localhost:5101',
-    chessHubUrl: 'http://localhost:5101/hub'
-  };
+    production: true,
+    apiUrl: 'http://quickchess.azurewebsites.net',
+    chessHubUrl: 'http://quickchess.azurewebsites.net/hub'
+};

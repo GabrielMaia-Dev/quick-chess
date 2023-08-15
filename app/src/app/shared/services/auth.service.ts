@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserModel } from '../models/UserModel';
 import { EMPTY, of, switchMap, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 type LoginRequest = { name: string; }
 
@@ -16,7 +17,7 @@ type LoginResponse = {
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly _url = 'http://localhost:5101/auth';
+  private readonly _url = `${environment.apiUrl}/auth`;
   private _user?: UserModel;
   private _token?: string;
 
