@@ -1,4 +1,4 @@
-namespace Api;
+namespace Application;
 
 public interface IGameBridgeFactory
 {

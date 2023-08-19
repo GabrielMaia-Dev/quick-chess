@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using Chess;
 
-namespace Api;
+namespace Application;
 
 
 public class MoveAction : GameAction<ChessBridge>

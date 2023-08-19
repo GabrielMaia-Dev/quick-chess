@@ -2,14 +2,26 @@
 
 using System;
 using System.Text.Json;
-using Api;
 using Chess;
+
+namespace Application;
 
 public record ChessSessionState(
     ChessBoard Board,
     User? BlackPlayer,
     User? WhitePlayer
 );
+
+
+public interface IGameBridge
+{
+    string Id { get; }
+    bool CanJoin { get; }
+    bool IsEmpty { get; }
+    object GetState();
+    void Join(User user);
+    void Remove(User user);
+}
 
 public class ChessBridge : IGameBridge
 {

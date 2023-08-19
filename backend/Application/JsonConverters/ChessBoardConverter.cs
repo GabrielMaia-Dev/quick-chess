@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Chess;
 
-namespace Api;
+namespace Application;
 
 public class ChessBoardConverter : JsonConverter<ChessBoard>
 {

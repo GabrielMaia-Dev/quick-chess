@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Api;
+namespace Application;
 
 
 public abstract class GameAction

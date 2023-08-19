@@ -1,4 +1,4 @@
-namespace Api;
+namespace Application;
 
 
 public class GameBridgeFactory : IGameBridgeFactory

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Api;
+namespace Application;
 
 public class GameCoordinator : IGameCoordinator
 {

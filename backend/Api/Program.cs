@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Api;
+using Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,8 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<IGameCoordinator, GameCoordinator>();
-builder.Services.AddSingleton<IGameBridgeFactory, GameBridgeFactory>();
+builder.Services.ConfigureApplication();
 builder.Services.AddTransient<UserTokenMiddleware>();
 
 builder.Services.AddSignalR()

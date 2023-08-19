@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Application;
 using Microsoft.AspNetCore.SignalR;
 
 namespace Api;
