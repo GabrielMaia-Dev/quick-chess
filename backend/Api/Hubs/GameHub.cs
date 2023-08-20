@@ -18,7 +18,7 @@ public sealed class GameHub : Hub
     public override async Task OnConnectedAsync()
     {
         var game = coordinator.Assign(Usuario);
-        await Groups.AddToGroupAsync(Context.ConnectionId, game.Id);
+        await Groups.AddToGroupAsync(Context.ConnectionId, game.Id.ToString());
         await SyncState(game);
     }
 
@@ -52,6 +52,6 @@ public sealed class GameHub : Hub
 
     private async Task SyncState(IGameBridge game)
     {
-        await Clients.Group(game.Id).SendAsync("GameState", game.GetState());
+        await Clients.Group(game.Id.ToString()).SendAsync("GameState", game.GetState());
     }
 }
