@@ -24,14 +24,14 @@ public sealed class GameHub : Hub
 
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
-        var game = coordinator.Get(Usuario);
+        var game = GetBridge(Usuario);
         coordinator.Drop(Usuario);
         await SyncState(game);
     } 
 
     public async Task GameAction(GameAction action) 
     {
-        var game = coordinator.Get(Usuario);
+        var game = GetBridge(Usuario);
 
         try
         {
@@ -53,5 +53,10 @@ public sealed class GameHub : Hub
     private async Task SyncState(IGameBridge game)
     {
         await Clients.Group(game.Id.ToString()).SendAsync("GameState", game.GetState());
+    }
+
+    private IGameBridge GetBridge(User user)
+    {
+        return coordinator.Get(user) ?? throw new Exception();
     }
 }
