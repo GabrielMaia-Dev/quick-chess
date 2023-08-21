@@ -27,7 +27,7 @@ public class AuthController : ControllerBase
 
         var claims = new List<Claim>()
         {
-            new Claim("id", user.Id),
+            new Claim("id", user.Id.ToString()),
             new Claim("name", user.Name)
         };
 

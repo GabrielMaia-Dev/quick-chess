@@ -29,7 +29,7 @@ public class UserTokenMiddleware : IMiddleware
         var name = jwtSecurityToken.Claims.First(c => c.Type == "name").Value;
         var id = jwtSecurityToken.Claims.First(c => c.Type == "id").Value;
         
-        context.SetUsuario(new User(name, id));
+        context.SetUsuario(new User(name, Guid.Parse(id)));
 
         await next.Invoke(context);
     }

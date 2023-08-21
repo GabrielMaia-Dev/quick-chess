@@ -6,12 +6,12 @@ namespace Application;
 public class User
 {
     /// <summary> Identificador do usuário. </summary>
-    public string Id { get; }
+    public Guid Id { get; }
     /// <summary> Nome do usuário. </summary>
     public string Name { get; }
-    public User(string name, string? id = null)
+    public User(string name, Guid? id = null)
     {
         Name = name;
-        Id = id ?? Guid.NewGuid().ToString();
+        Id = id ?? Guid.NewGuid();
     }
 }
