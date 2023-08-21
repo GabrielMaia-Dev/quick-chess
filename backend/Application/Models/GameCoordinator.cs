@@ -35,6 +35,8 @@ public class GameCoordinator : IGameCoordinator
 
     public void Drop(User user)
     {
+        if(!_userGameMap.ContainsKey(user)) return;
+
         var game = _userGameMap[user];
         game.Remove(user);
         _users.Remove(user);
@@ -46,8 +48,9 @@ public class GameCoordinator : IGameCoordinator
         }
     }
 
-    public IGameBridge Get(User user)
+    public IGameBridge? Get(User user)
     {
+        if(!_userGameMap.ContainsKey(user)) return null;
         return _userGameMap[user];
     }
 }
