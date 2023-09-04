@@ -1,5 +1,5 @@
 # QuickChess
-QuickChess é um projeto Opensource de portifolio, que tem como objetivo desenvolver uma plataforma para jogar xadres (e futuramente outros jogos similares) com outras pessoas de forma rapida. Dessa forma todo o funcionamento do [backend]() e [front]() end é documentado no aspecto de arquitetura e funcionamento.
+QuickChess é um projeto Opensource de portifolio, que tem como objetivo desenvolver uma plataforma para jogar xadres (e futuramente outros jogos similares) com outras pessoas de forma rapida. Dessa forma todo o funcionamento do [backend](https://github.com/GabrielMaia-Dev/quick-chess/wiki/Backend) e [front](https://github.com/GabrielMaia-Dev/quick-chess/wiki/Frontend) end é documentado no aspecto de arquitetura e funcionamento.
 
 # Como rodar o projeto?
 Para rodar o projeto basta executar os projetos (front e backend) de forma separada
