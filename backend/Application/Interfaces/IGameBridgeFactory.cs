@@ -4,5 +4,5 @@ namespace Application;
 public interface IGameBridgeFactory
 {
     /// <summary> Cria um jogo </summary>
-    IGameBridge Create();
+    IGameBridge Create(string game);
 }

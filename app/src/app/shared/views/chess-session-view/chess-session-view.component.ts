@@ -19,7 +19,7 @@ export class ChessSessionView {
               notification: NotificationService,
               router: Router) {
                 
-    this._gameConnection = _factory.build();
+    this._gameConnection = _factory.build("chess");
     const game = new ChessGame(this._gameConnection, notification);
     this.game$ = game.start();
     router.events.subscribe(route => {

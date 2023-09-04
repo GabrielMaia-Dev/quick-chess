@@ -15,7 +15,7 @@ public class GameCoordinator : IGameCoordinator
         this._factory = factory;
     }
 
-    public IGameBridge Assign(User user)
+    public IGameBridge Assign(User user, string gameType)
     {
         _users.Add(user);
 
@@ -23,7 +23,7 @@ public class GameCoordinator : IGameCoordinator
         
         if(game is null)
         {
-            game = _factory.Create();
+            game = _factory.Create(gameType);
             _games.Add(game);
         }
 

@@ -20,12 +20,12 @@ public class GameCoordinatorTest
         var user = UserGenerator.Create();
         var mockBridge = new Mock<IGameBridge>();
         
-        mockFactory.Setup(m => m.Create())
+        mockFactory.Setup(m => m.Create("chess"))
             .Returns(mockBridge.Object)
             .Verifiable();
 
         // When
-        var bridge = model.Assign(user);
+        var bridge = model.Assign(user, "chess");
         
         // Then
         Assert.NotNull(bridge);
@@ -49,10 +49,10 @@ public class GameCoordinatorTest
         // Given
         var user = UserGenerator.Create();
         
-        mockFactory.Setup(m => m.Create())
+        mockFactory.Setup(m => m.Create("chess"))
             .Returns(Mock.Of<IGameBridge>());
 
-        var assignedBridge = model.Assign(user);
+        var assignedBridge = model.Assign(user, "chess");
 
         // When
         var bridge = model.Get(user);
@@ -67,10 +67,10 @@ public class GameCoordinatorTest
         // Given
         var user = UserGenerator.Create();
 
-        mockFactory.Setup(m => m.Create())
+        mockFactory.Setup(m => m.Create("chess"))
             .Returns(Mock.Of<IGameBridge>());
 
-        model.Assign(user);
+        model.Assign(user, "chess");
         Assert.NotNull(model.Get(user));
 
         // When

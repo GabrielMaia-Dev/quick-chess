@@ -1,10 +1,15 @@
+using System;
+
 namespace Application;
 
 
 public class GameBridgeFactory : IGameBridgeFactory
 {
-    public IGameBridge Create()
+    public IGameBridge Create(string game)
     {
-        return new ChessBridge();
+        return game switch {
+            "chess" => new ChessBridge(),
+            _ => throw new Exception("Unkown game time.")
+        };
     }
 }

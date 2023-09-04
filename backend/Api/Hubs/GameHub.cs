@@ -17,7 +17,14 @@ public sealed class GameHub : Hub
 
     public override async Task OnConnectedAsync()
     {
-        var game = coordinator.Assign(Usuario);
+        if(!Context.GetHttpContext()!.Request.Query.ContainsKey("game"))
+        {
+            Context.Abort();
+        }
+
+        string gameType = Context.GetHttpContext()!.Request.Query["game"]!;
+
+        var game = coordinator.Assign(Usuario, gameType);
         await Groups.AddToGroupAsync(Context.ConnectionId, game.Id.ToString());
         await SyncState(game);
     }
