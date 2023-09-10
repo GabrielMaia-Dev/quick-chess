@@ -16,20 +16,20 @@ public class GameActionJsonConverter : JsonConverter<GameAction>
     }
     public override GameAction? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        if(reader.TokenType != JsonTokenType.StartObject) throw null!;
+        if(reader.TokenType != JsonTokenType.StartObject) throw new JsonException("Expected StartObject Token.");
 
         reader.Read();
-        if(reader.TokenType != JsonTokenType.PropertyName) throw null!;
-        if(reader.GetString() != "$type") throw null!;
+        if(reader.TokenType != JsonTokenType.PropertyName) throw new JsonException("Expected Property Name '$type'.");
+        if(reader.GetString() != "$type") throw new JsonException();
         
         reader.Read();
         var type = reader.GetString();
 
-        if(type is null || !dictionary.ContainsKey(type)) throw null!;
+        if(type is null || !dictionary.ContainsKey(type)) throw new JsonException("Unkown GameAction Type.");
 
         reader.Read();
-        if(reader.TokenType != JsonTokenType.PropertyName) throw null!;
-        if(reader.GetString() != "action") throw null!;
+        if(reader.TokenType != JsonTokenType.PropertyName) throw new JsonException("Expected PropertyName Token.");
+        if(reader.GetString() != "action") throw new JsonException("Expected PropertyName 'action'.");
 
         reader.Read();
         var obj = JsonSerializer.Deserialize(ref reader, dictionary[type], options);
@@ -37,7 +37,7 @@ public class GameActionJsonConverter : JsonConverter<GameAction>
 
         reader.Read();
 
-        if(reader.TokenType != JsonTokenType.EndObject) throw null!;
+        if(reader.TokenType != JsonTokenType.EndObject) throw new JsonException("Expected EndObject Token.");
         return obj as GameAction;
     }
 
