@@ -2,9 +2,11 @@
     display: flex;
     justify-content: center;
 }
+
 div.chess-board {
     display: flex;
     width: 100%;
+    margin: 1rem 0 ;
     justify-content: center;
     flex-wrap: wrap;
     width: 400px;
@@ -13,16 +15,16 @@ div.chess-board {
 }
 
 .chess-tile {
-    width: calc(400px / 8);
-    height: calc(400px / 8);
-    flex: 0 0 calc(400px / 8);
+    width: calc(100% / 8);
+    height: calc(100% / 8);
+    flex: 0 0 calc(100% / 8);
+    box-sizing: border-box;
     &:hover {
         border: 3px solid rgb(71, 255, 224);
     }
     
     &.selected {
         border: 3px solid rgb(71, 255, 111) !important;
-
     }
 
     &:nth-child(16n + 1),
@@ -49,9 +51,16 @@ div.chess-board {
 }
 
 img.piece {
-    width: 35px;
-    left: 7.5px;
-    bottom: 30px;
+    width: 85%;
+    left: 7.5%;
+    bottom: 85%;
     position: relative;
     image-rendering: pixelated;
+}
+
+@media (max-width: 400px) {
+    div.chess-board {
+        width: 100vw;
+        height: 100vw;
+    }
 }

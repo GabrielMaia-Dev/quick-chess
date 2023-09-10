@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ChessBoard, ChessPieceType, ChessPosition, ChessPositions } from '../../models/ChessModel/ChessModel';
 
 const pieceMap = new Map<ChessPieceType, string>([

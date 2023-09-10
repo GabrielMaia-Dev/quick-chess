@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-$bg-color: #2c3e50;
+$bg-color: #262531;
 $color: #dddddd;
 $border-radius: .25rem;
 $border: 2px solid $color;
@@ -63,7 +63,7 @@ $border: 2px solid $color;
     padding: 1rem;
     border: $border;
     border-radius: $border-radius;
-    background-color: #263340;
+    background-color: darken($bg-color, 4);
   }
   
   div.input-group-button {
@@ -82,4 +82,10 @@ $border: 2px solid $color;
 
   .w100 {
     width: 100%;
+  }
+
+  @media (max-width: 440px) {
+    * {
+      font-size: 14px;
+    }
   }

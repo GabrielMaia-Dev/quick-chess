@@ -22,6 +22,9 @@ export class MainView {
     this._auth.login(this.model).subscribe(() => {
       this._notification.notify({ type: 'success', message: 'Connected!' });
       this._router.navigate(['/session', game])
+    },
+    () => {
+      this._notification.notify({ type: 'danger', message: 'Failed to connect.'})
     });
   }
 }
